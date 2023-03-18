@@ -1,5 +1,28 @@
 {
   "devDependencies": {
+    "@types/node": "^18.15.3",
+    "nodemon": "^2.0.21",
     "typescript": "^5.0.2"
+  },
+  "name": "ourcoffee-backend",
+  "version": "0.0.1",
+  "description": "Backend for our future Coffee Shop's website",
+  "main": "server.ts",
+  "scripts": {
+    "test": "npm test",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sinatrablue/coffee-back.git"
+  },
+  "author": "Robin Simonot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sinatrablue/coffee-back/issues"
+  },
+  "homepage": "https://github.com/sinatrablue/coffee-back#readme",
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }

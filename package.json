@@ -2,10 +2,10 @@
   "name": "ourcoffee-backend",
   "version": "0.0.1",
   "description": "Backend for our future Coffee Shop's website",
-  "main": "CoffeeServer.ts",
+  "main": "server.ts",
   "scripts": {
     "test": "npx mocha",
-    "start": "nodemon src/CoffeeServer.ts",
+    "start": "nodemon src/server.ts",
     "build": "tsc"
   },
   "repository": {

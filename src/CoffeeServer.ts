@@ -1,9 +1,10 @@
 import { CoffeeServerOptions } from "./interfaces/CoffeeServerOptions";
 import { api } from "./api";
 import express, { Express } from "express";
+import { createServer, Server } from "http";
 
 export class CoffeeServer {
-    app: Express
+    server: Server
     options: CoffeeServerOptions = {
         port: 3000
     }
@@ -14,16 +15,27 @@ export class CoffeeServer {
         
         const app = express();
         app.use("/api", api)
-        this.app = app
+        this.server = createServer(app)
     }
 
     async start() {
-        this.app.listen(this.options.port, () => {
-            console.log(` > Started on port : ${this.options.port}`)
-        })
+        try {
+            this.server.listen(this.options.port, () => {
+                console.log(`\t-> Started with success on port ${this.options.port}`);
+            });
+        } catch (err) {
+            console.log('err: ', err)
+            throw new Error("Server did not start")
+        }
     }
-
     async stop() {
-        throw new Error("Not implemented")
+        try {
+            this.server.close(() => {
+                console.log("\t-> Stopped server successfully")
+            })
+        } catch (err) {
+            console.log('err: ', err)
+            throw new Error("Server did not stop properly")
+        }
     }
 }
